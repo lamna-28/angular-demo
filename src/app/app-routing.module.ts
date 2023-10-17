@@ -9,6 +9,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DashboardPageComponent } from './pages/admin/dashboard-page/dashboard-page.component';
 import { ProductManagerPageComponent } from './pages/admin/product-manager-page/product-manager-page.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { SignupComponent } from './pages/signup/signup.component';
+
 
 const routes: Routes = [
   {
@@ -16,6 +18,8 @@ const routes: Routes = [
       { path: "", component: HomePageComponent },
       { path: "product", component: ProductPageComponent },
       { path: "about", component: AboutPageComponent },
+      { path: "signup", component: SignupComponent },
+
     ]
   },
   {

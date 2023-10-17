@@ -17,7 +17,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-
+import { SignupComponent } from './pages/signup/signup.component';
+import { SigninComponent } from './pages/signin/signin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
     NavComponent,
     BaseLayoutComponent,
     AdminLayoutComponent,
-    ProductListComponent
+    ProductListComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,

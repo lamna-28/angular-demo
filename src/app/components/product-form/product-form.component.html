@@ -1,16 +1,54 @@
 <h1>{{mode === 'create'? "Thêm" : "Cập nhật"}} sản phẩm</h1>
 <form (ngSubmit)="onSubmit()" [formGroup]="productForm">
     <div class="mb-3">
+        <hr>
         <label for="name" class="form-label">Tên sản phẩm</label>
         <input type="input" class="form-control" id="name" placeholder="Tên sản phẩm" formControlName="name">
+        <div class="error" *ngIf="
+                productForm.get('name')?.hasError('required') &&
+                (productForm.get('name')?.touched ||
+                productForm.get('namel')?.dirty)
+            ">
+            <div class="error">Vui lòng nhập tên</div>
+        </div>
+        <div class="error" *ngIf="
+        productForm.get('name')?.hasError('minlength') &&
+            (productForm.get('name')?.touched ||
+            productForm.get('name')?.dirty)
+        ">
+            <div class="error">Yêu cầu 4 ký tự</div>
+        </div>
     </div>
+
     <div class="mb-3">
+        <hr>
         <label for="price" class="form-label">Giá sản phẩm</label>
         <input type="input" class="form-control" id="price" placeholder="Giá sản phẩm" formControlName="price">
     </div>
+
+    <div class="error" *ngIf="
+                productForm.get('price')?.hasError('pattern') &&
+                (productForm.get('price')?.touched ||
+                productForm.get('price')?.dirty)
+            ">
+        <div class="error">Bắt buộc phải là số</div>
+    </div>
+    <div class="error" *ngIf="productForm.get('price')?.hasError('required') && (productForm.get('description')?.touched||productForm.get('description')?.dirty)
+    ">
+        <div class="error">Không được để trống</div>
+    </div>
     <div class="mb-3">
+        <hr>
         <label for="description" class="form-label">Mô tả</label>
         <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
     </div>
+    <div class="error" *ngIf="
+                productForm.get('description')?.hasError('required') &&
+                (productForm.get('description')?.touched ||
+                productForm.get('description')?.dirty)
+            ">
+        <div class="error">Không được để trống</div>
+    </div>
+
     <button class="btn btn-primary" type="submit">{{mode === 'create'? "Thêm" : "Cập nhật"}} sản phẩm</button>
 </form>

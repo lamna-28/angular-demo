@@ -1,0 +1,55 @@
+<body class="text-center">
+    <form (ngSubmit)="onSubmit()" [formGroup]="formSignup" class="form-signup">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+        <div class="mb-3">
+            <input type="text" formControlName="name" placeholder="Name" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <input type="email" formControlName="email" placeholder="Email" class="form-control" />
+            <div class="error" *ngIf="
+                formSignup.get('email')?.hasError('required') &&
+                (formSignup.get('email')?.touched ||
+                    formSignup.get('email')?.dirty)
+            ">
+                Vui lòng nhập email
+            </div>
+            <div class="error" *ngIf="
+                formSignup.get('email')?.hasError('email') &&
+                (formSignup.get('email')?.touched ||
+                    formSignup.get('email')?.dirty)
+            ">
+                Email không hợp lệ
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="password" formControlName="password" placeholder="Password" class="form-control" />
+            <div class="error" *ngIf="
+                formSignup.get('password')?.hasError('required') &&
+                (formSignup.get('password')?.touched ||
+                    formSignup.get('password')?.dirty)
+            ">
+                Vui lòng nhập password
+            </div>
+            <div class="error" *ngIf="
+                formSignup.get('password')?.hasError('minlength') &&
+                (formSignup.get('password')?.touched ||
+                    formSignup.get('password')?.dirty)
+            ">
+                Yêu cầu 8 ký tự
+                <div class="mb-3">
+                    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+
+                    <div class="error" *ngIf="
+                formSignup?.hasError('notMatch') &&
+                (formSignup.get('confirmPassword')?.touched ||
+                    formSignup.get('confirmPassword')?.dirty)
+            ">
+                        Mật khẩu không trùng khớp
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
+    </form>
+</body>

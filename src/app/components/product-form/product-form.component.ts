@@ -4,6 +4,7 @@ import { IProduct } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 import { lastValueFrom } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-form',
@@ -13,10 +14,11 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductFormComponent {
 
   productForm = this.formBuilder.group({
-    name: [''],
-    price: [0],
-    description: [''],
+    name: ['', [Validators.required, Validators.minLength(4)]],
+    price: [0, [Validators.required, Validators.pattern("^[0-9]*$")]],
+    description: ['', [Validators.required]],
   });
+
   product!: IProduct;
   mode: "create" | "update" = "create";
   constructor(
