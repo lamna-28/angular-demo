@@ -1,17 +1,4 @@
 {
-  "product": [
-    {
-      "name": "Iphone 11",
-      "price": "1100000",
-      "description": "Bản 128GB",
-      "id": 4
-    },
-    {
-      "name": "Iphone 13",
-      "price": "16000000",
-      "description": "Bản 512GB",
-      "id": 5
-    }
-  ],
+  "product": [],
   "user": []
 }
